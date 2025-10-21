@@ -286,9 +286,3 @@ fig_recoverate.update_layout(
 )
 
 #fig_recoverate.show()
-
-
-
-
-
-
