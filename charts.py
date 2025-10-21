@@ -123,9 +123,9 @@ fig.update_layout(title_x=0.5)
 #fig.write_html("continent by  total tests.html")
 
 fig_scatterplot=px.scatter(df1, x='Continent',y='TotalCases',
-           hover_data={'Country/Region':True,'WHO Region':True,'Continent':True,'TotalCases':':.0f'},
+           hover_data={'Country/Region':True,'WHO Region':True,'Continent':True,'TotalCases': True},
            title='scatter plot of continent by  total cases',
-           color='TotalCases',size='TotalCases',size_max=80)
+           color='TotalRecovered',size='TotalCases',size_max=80)
 fig.update_layout(title_x=0.5)
 #fig.show()
 #fig.write_html("scatter plot of continent by  total cases.html")
@@ -184,8 +184,12 @@ fig_contable = go.Figure(
 fig_contable.update_layout(
     title_text='COVID-19 Dataset by Continent',
     title_x=0.5,  # Center title
-    title_font=dict(size=20, color='midnightblue')
+    title_font=dict(size=20, color='midnightblue'),
+    width=1100,   # Increase overall figure width
+    height=600,   # Increase figure height so last row shows well
+    margin=dict(l=40, r=40, t=80, b=40)  # Add some spacing around
 )
+
 
 # Step 5: Display the table
 #fig_contable.show()
@@ -193,9 +197,9 @@ fig_contable.update_layout(
 
 df1['TotalDeaths'] = df1['TotalDeaths'].fillna(0)
 fig_impact=px.scatter(df1, x='Continent',y='Population',
-           hover_data=['Country/Region', 'WHO Region'],
-           title='scatter plot of continent by  Population',
-           color='TotalDeaths', size='TotalDeaths', size_max=80, log_y=True)
+           hover_data=['Country/Region', 'WHO Region', 'TotalCases'],
+           title='Impact of covid 19 deaths relative to population',
+           color='TotalDeaths', size='TotalDeaths', size_max=80, log_y=False)
 fig_impact.update_layout(title_x=0.5)
 #fig_impact.show()
 #fig_impact.write_html("Impact of covid 19 deaths relative to population.html")
@@ -241,8 +245,6 @@ fig_tcasesbyrecov.update_layout(
 
 #fig_tcasesbyrecov.show()
 
-import plotly.express as px
-import pandas as pd
 
 # Group by WHO region and sum total cases and recoveries
 df_region = df1.groupby('WHO Region', as_index=False)[['TotalCases', 'TotalRecovered']].sum()
