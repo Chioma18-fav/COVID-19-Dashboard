@@ -167,7 +167,7 @@ fig_contable = go.Figure(
             align='center',
             font=dict(color='white', size=13),
             line_color='purple',
-            height=35
+            height=28
         ),
         cells=dict(
             values=[continent_summary[col] for col in continent_summary.columns],
@@ -185,8 +185,8 @@ fig_contable.update_layout(
     title_text='COVID-19 Dataset by Continent',
     title_x=0.5,  # Center title
     title_font=dict(size=20, color='midnightblue'),
-    width=1100,   # Increase overall figure width
-    height=600,   # Increase figure height so last row shows well
+    width=800,   # Increase overall figure width
+    height=300,   # Increase figure height so last row shows well
     margin=dict(l=40, r=40, t=80, b=40)  # Add some spacing around
 )
 
@@ -199,7 +199,7 @@ df1['TotalDeaths'] = df1['TotalDeaths'].fillna(0)
 fig_impact=px.scatter(df1, x='Continent',y='Population',
            hover_data=['Country/Region', 'WHO Region', 'TotalCases'],
            title='Impact of covid 19 deaths relative to population',
-           color='TotalDeaths', size='TotalDeaths', size_max=80, log_y=False)
+           color='TotalDeaths', size='TotalDeaths', size_max=80, log_y=True)
 fig_impact.update_layout(title_x=0.5)
 #fig_impact.show()
 #fig_impact.write_html("Impact of covid 19 deaths relative to population.html")
@@ -283,7 +283,7 @@ fig_recoverate.update_layout(
     yaxis_title='WHO Region',
     title_x=0.5,
     coloraxis_colorbar=dict(title='Recovery Rate (%)'),
-    height=450,
+    height=300,
     bargap=0.3
 )
 
