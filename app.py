@@ -20,6 +20,6 @@ app.layout = html.Div([
 ], style={'backgroundColor': '#001f4d'})  # dark blue background
 
 # Run app
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run_server(host="0.0.0.0",
     port=int(os.environ.get("PORT", 8080)))
