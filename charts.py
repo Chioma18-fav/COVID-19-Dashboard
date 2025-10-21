@@ -184,12 +184,12 @@ fig_contable = go.Figure(
 fig_contable.update_layout(
     title_text='COVID-19 Dataset by Continent',
     title_x=0.5,  # Center title
-    title_font=dict(size=14, color='midnightblue'),
-    width=800,   # Increase overall figure width
+    title_font=dict(size=20, color='midnightblue'),
+    width=1000,   # Increase overall figure width
     height=500,   # Increase figure height so last row shows well
     margin=dict(l=20, r=20, t=70, b=20)  # Add some spacing around
 )
-
+fig_contable.update_traces(cells=dict(font=dict(size=11)))
 
 # Step 5: Display the table
 #fig_contable.show()
