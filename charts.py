@@ -167,7 +167,7 @@ fig_contable = go.Figure(
             align='center',
             font=dict(color='white', size=13),
             line_color='purple',
-            height=28
+            height=35
         ),
         cells=dict(
             values=[continent_summary[col] for col in continent_summary.columns],
@@ -185,8 +185,8 @@ fig_contable.update_layout(
     title_text='COVID-19 Dataset by Continent',
     title_x=0.5,  # Center title
     title_font=dict(size=20, color='midnightblue'),
-    width=800,   # Increase overall figure width
-    height=300,   # Increase figure height so last row shows well
+    width=1000,   # Increase overall figure width
+    height=400,   # Increase figure height so last row shows well
     margin=dict(l=40, r=40, t=80, b=40)  # Add some spacing around
 )
 
@@ -283,7 +283,7 @@ fig_recoverate.update_layout(
     yaxis_title='WHO Region',
     title_x=0.5,
     coloraxis_colorbar=dict(title='Recovery Rate (%)'),
-    height=300,
+    height=400,
     bargap=0.3
 )
 
