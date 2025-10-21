@@ -1,3 +1,4 @@
+import os
 import dash
 from dash import dcc, html
 from charts import fig_recoverate, fig_tcasesbyrecov, fig_contable, fig_impact, fig_totalcasesdeaths, fig_scatterplot
@@ -19,5 +20,6 @@ app.layout = html.Div([
 ], style={'backgroundColor': '#001f4d'})  # dark blue background
 
 # Run app
-if __name__ == "__main__":
-    app.run(debug=True)
+if _name_ == "_main_":
+    app.run_server(host="0.0.0.0",
+    port=int(os.environ.get("PORT", 8080)))
