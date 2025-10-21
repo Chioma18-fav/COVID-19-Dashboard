@@ -4,7 +4,7 @@ import plotly.express as px
 #import matplotlib.pyplot as plt
 #import seaborn as sns
 #import numpy as np
-df1=pd.read_csv(r"C:\Users\HP PC\Downloads/covid.csv")
+df1=pd.read_csv("covid.csv")
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 2000)
 #print(df1.head())
