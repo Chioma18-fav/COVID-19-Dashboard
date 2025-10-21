@@ -162,14 +162,22 @@ row_colors=['lightyellow','lavender']
 fig_contable = go.Figure(
     data=[go.Table(
         header=dict(
-            values=[f"<b>{col}</b>" for col in continent_summary.columns],  # Bold headers
-            fill_color='royalBlue',  # Header background color
-            align='center',
-            font=dict(color='white', size=13),
-            line_color='purple',
-            height=35
+            values=[
+                "<b>Continent</b>",
+                "<b>Cases</b>",        # TotalCases
+                "<b>Deaths</b>",       # TotalDeaths
+                "<b>Recovered</b>",    # TotalRecovered
+                "<b>Active</b>",       # ActiveCases
+                "<b>Tests</b>",        # TotalTests
+                "<b>Death %</b>"       # DeathRate (%)
+            ],  # Bold headers
+        fill_color='royalBlue',  # Header background color
+        align='center',
+        font=dict(color='white', size=13),
+        line_color='purple',
+        height=35
         ),
-        cells=dict(
+    cells=dict(
             values=[continent_summary[col] for col in continent_summary.columns],
             fill_color=[row_colors * (len(continent_summary) // 2 + 1)],  # Alternate row colors
             align='center',
